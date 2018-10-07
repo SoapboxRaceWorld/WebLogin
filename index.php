@@ -22,7 +22,7 @@
 			<div class="server_reply" style="display: none;"></div>
 
 			<select name='server'>
-				<option value="" disabled selected>Select your option</option>
+				<option value="" disabled selected>Select server</option>
 				<?php foreach ($json_serverlist as $value): ?>
 					<option value="<?=$value['id'];?>"><?=$value['name']?></option>
 				<?php endforeach ?>
@@ -92,20 +92,21 @@
 						jQuery(".server_reply").show();
 
 						if(data.error == true) {
-							jQuery(".server_reply").html("<div class='alert alert-danger'>" + data.message + "</div>");
+							jQuery(".server_reply").html("<div class='alert alert-danger' style='margin: 0;'>" + data.message + "</div>");
 						} else {
-							var message = "Please run your console and type the following command:<br /><br />";
+							var message = '<div class="alert alert-info"><b>INFO:</b> Please note to NOT create any shortcut on desktop using this commandline!</div>';
+							message += "Please run your console in NFSW installation folder and type the following command:<br /><br />";
 							message += '<div class="commands">';
 							message += '$ nfsw.exe SBRW ' + data.serverip + ' ' + data.token + ' ' + data.userid;
 							message += '</div>';
 							message += '<br />';
-							message += 'Or... if you use MacOS or Linux:<br /><br />';
+							message += 'Or... if you use <b>MacOS</b> or <b>Linux</b>:<br /><br />';
 							message += '<div class="commands">';
 							message += '$ wine nfsw.exe SBRW ' + data.serverip + ' ' + data.token + ' ' + data.userid;
 							message += '</div>';
 							message += '<br />';
-							message += 'Or... if you use GameLauncherReborn:<br /><br />';
-							message += '<a class="launcher" href="nfswlaunch://auth/' + data.authcode + '">Launch GameLauncherReborn</a>';
+							message += 'Or... if you use <b>GameLauncherReborn</b>:<br /><br />';
+							message += '<a class="launcher" href="nfswlaunch://auth/' + data.authcode + '">Launch GameLauncherReborn</a><br />';
 							message += '</div>';
 
 							jQuery(".server_reply").html(message);
@@ -119,7 +120,7 @@
 					}, "json");
 				} else {
 					jQuery(".server_reply").show();
-					jQuery(".server_reply").html("<div class='alert alert-danger'>There was an issue sending your datas, please check bellow for errors</div>");
+					jQuery(".server_reply").html("<div class='alert alert-danger' style='margin: 0;'>There was an issue sending your datas, please check bellow for errors</div>");
 				}
 			});
 		</script>

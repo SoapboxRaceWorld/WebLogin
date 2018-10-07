@@ -31,7 +31,9 @@
 
 	if($xml['Description'] != NULL) {
 		die(json_encode(array("error" => true, "message" => $xml['Description'])));
+	} elseif($xml['Ban']['Reason'] != NULL) {
+		die(json_encode(array("error" => true, "message" => "This user is banned until ".$xml['Ban']['Expires'].".<br /> <b>Reason:</b> ".$xml['Ban']['Reason'])));
 	} else {
-		die(json_encode(array("error" => false, "serverip" => $servers[$server], "token" => $xml['LoginToken'], "userid" => $xml['UserId'], "authcode" => base64_encode($xml['UserId']."__".$xml['LoginToken']."__".$servers[$server]))));
+		die(json_encode(array("error" => false, "serverip" => $servers[$server], "token" => $xml['LoginToken'], "userid" => $xml['UserId'], "fullreply" => $xml, "authcode" => base64_encode($xml['UserId']."__".$xml['LoginToken']."__".$servers[$server]))));
 	}
 ?>
