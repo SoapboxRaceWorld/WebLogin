@@ -1,0 +1,17 @@
+.form {
+	margin: 50px 5% 100px 25% !important;
+	display: inline-block;
+}
+
+.serverinfo {
+	background: #FFFFFF;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+    border: 1px solid #505050;
+    border-bottom: 3px solid #505050;
+    height: 550px;
+	display: inline-block;
+    width: 300px;
+    margin: 0;
+    padding: 0;
+}

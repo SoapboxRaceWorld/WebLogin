@@ -9,16 +9,16 @@
 	<head>
 		<title>SBRW - WebLogin</title>
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" />
+
 		<meta charset="UTF-8">
 		<meta name="robots" content="noindex">
 
 		<link rel="stylesheet" type="text/css" href="assets/main.css">
+		<link rel="stylesheet" type="text/css" href="assets/main2.css">
 	</head>
 
 	<body>
 		<div class="form">
-
 			<div class="server_reply" style="display: none;"></div>
 
 			<select name='server'>
@@ -26,7 +26,6 @@
 				<?php foreach ($json_serverlist as $value): ?>
 					<option value="<?=$value['id'];?>"><?=$value['name']?></option>
 				<?php endforeach ?>
-				<option value="nr">NightRiderz</option>
 			</select>
 
 			<form class="register-form">
@@ -42,22 +41,23 @@
 				<input id="email" type="text" placeholder="email address">
 				<input id="password" type="password" placeholder="password">
 				<button id="login">login</button>
-				<p class="message">Not registered? <a href="#">Create an account</a></p>
+				<p class="message">Not registered? <a href="javascript:alert('Soon')">Create an account</a></p>
 			</form>
 		</div>
 
+		<div class="serverinfo">
+			<h1>SERVERNAME</h1>
+			<b>Online players:</b> 0<br />
+			<b>Registered players:</b> 0<br />
+		</div>
+
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
-
 		<script>
-			hljs.initHighlightingOnLoad();
-			$('.message a').click(function () {
+			//$('.message a').click(function () {
 			//	$('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
-				swal("This will come soon.");
-			});
+			//});
 
 			function isEmail(email) {
 				var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -104,18 +104,14 @@
 						} else {
 							var message = '<div class="alert alert-info"><b>INFO:</b> Please note to NOT create any shortcut on desktop using this commandline!</div>';
 							message += "Please run your console in NFSW installation folder and type the following command:<br /><br />";
-							//message += '<div class="commands">';
-							message += '<pre><code class="shell">';
+							message += '<div class="commands">';
 							message += '$ nfsw.exe SBRW ' + data.serverip + ' ' + data.token + ' ' + data.userid;
-							message += '</code></pre>';
-							//message += '</div>';
+							message += '</div>';
 							message += '<br />';
 							message += 'Or... if you use <b>MacOS</b> or <b>Linux</b>:<br /><br />';
-							//message += '<div class="commands">';
-							message += '<pre><code class="shell">';
+							message += '<div class="commands">';
 							message += '$ wine nfsw.exe SBRW ' + data.serverip + ' ' + data.token + ' ' + data.userid;
-							message += '</code></pre>';
-							//message += '</div>';
+							message += '</div>';
 							message += '<br />';
 							message += 'Or... if you use <b>GameLauncherReborn</b>:<br /><br />';
 							message += '<a class="launcher" href="nfswlaunch://auth/' + data.authcode + '">Launch GameLauncherReborn</a><br />';
@@ -127,10 +123,6 @@
 							jQuery(".server_reply").css("border-bottom", "none");
 							jQuery(".server_reply").css("margin-bottom", "0");
 							jQuery(".server_reply").css("padding-bottom", "0");
-
-							jQuery('pre code').each(function(i, block) {
-								hljs.highlightBlock(block);
-							});
 						}
 
 					}, "json");

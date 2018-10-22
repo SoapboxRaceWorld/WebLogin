@@ -13,6 +13,8 @@
 		$servers[$value['id']] = $value['ip_address'];
 	}
 
+	$servers['nr'] = "http://149.202.87.33:8680/soapbox-race-core/Engine.svc";
+
 	if($servers[$server] == NULL) die(json_encode(array("error" => true, "message" => "Unknown server")));
 
 

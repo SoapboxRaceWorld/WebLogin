@@ -12,7 +12,7 @@
 	border-radius: 5px;
 	border: 1px solid #505050;
     border-bottom: 3px solid #505050;
-    height: 550px;
+    height: 560px;
 }
 
 .form input, .form select {
@@ -86,12 +86,20 @@ a:hover.launcher, a:active.launcher, a:focus.launcher {
 }
 
 body {
-	background: #526db8; /* fallback for old browsers */
+	/*background: #526db8;
 	background: -webkit-linear-gradient(right, #526db8, #976fc2);
 	background: -moz-linear-gradient(right, #526db8, #976fc2);
 	background: -o-linear-gradient(right, #526db8, #976fc2);
 	background: linear-gradient(to left, #526db8, #976fc2);
 	font-family: "Roboto", sans-serif;
 	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;			
+	-moz-osx-font-smoothing: grayscale;	*/
+
+	background: #000 url(https://files.metonator.cloud/up/Need_for_Speed__World_08.27.2017_-_05.38.03.33e_—_kopia.f3358bf9.png) no-repeat top center;
+    background-size: cover;	
+}
+
+pre {
+	padding: 0 !important;
+	word-break: break-word;
 }
