@@ -95,7 +95,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;	*/
 
-	background: #000 url(https://files.metonator.cloud/up/Need_for_Speed__World_08.27.2017_-_05.38.03.33e_—_kopia.f3358bf9.png) no-repeat top center;
+	background: #000 url("../assets/bg.png") no-repeat top center;
     background-size: cover;	
 }
 
